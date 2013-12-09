@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui sql
+QT += printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -14,13 +15,23 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
     systeminfo_x11.cpp \
-    crawler.cpp
+    crawler.cpp \
+    transformer.cpp \
+    logic.cpp \
+    viewreport.cpp \
+    nightcharts.cpp
 
 HEADERS  += \
     SystemInfo.h \
-    crawler.h
+    crawler.h \
+    transformer.h \
+    logic.h \
+    viewreport.h \
+    nightcharts.h
 
-FORMS    +=
+FORMS    += \
+    transformer.ui \
+    viewreport.ui
 
 RESOURCES += \
     icons.qrc

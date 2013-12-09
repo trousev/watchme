@@ -34,3 +34,20 @@ void Crawler::onTimer()
               .arg(QDateTime::currentMSecsSinceEpoch()/1000).arg(wc,wn))
             .exec();
 }
+
+QList<WindowInfo> Crawler::all(int seconds_before)
+{
+    qint64 ts = QDateTime::currentDateTime().addSecs(-seconds_before).toMSecsSinceEpoch()/1000;
+    QSqlQuery q(QString("SELECT timestamp, wclass, wtitle FROM watch WHERE timestamp > %1").arg(ts));
+    QList<WindowInfo> ans;
+    if(!q.exec()) return ans;
+    while(q.next())
+    {
+        WindowInfo i;
+        i.windowClass = q.value(1).toString();
+        i.windowName = q.value(2).toString();
+        i.windowTitle = q.value(2).toString();
+        ans << i;
+    }
+    return ans;
+}
