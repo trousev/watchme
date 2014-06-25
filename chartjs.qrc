@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/chartjs">
+        <file>chartjs/ChartNew.js</file>
+        <file>chartjs/component.json</file>
+        <file>chartjs/mathFunctions.js</file>
+        <file>chartjs/sample.html</file>
+    </qresource>
+</RCC>

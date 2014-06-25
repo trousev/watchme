@@ -4,10 +4,11 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
+QT       += core gui sql webkit
 # QT += printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += webkitwidgets
 
 TARGET = watchme
 TEMPLATE = app
@@ -32,10 +33,12 @@ FORMS    += \
     src/uaddfilter.ui
 
 RESOURCES += \
-    res/res.qrc
+    res/res.qrc \
+    chartjs.qrc
 
 OTHER_FILES += \
-    res/sheet.sql
+    res/sheet.sql \
+    res/index.html
 
 
 OBJECTS_DIR=$$PWD/tmp

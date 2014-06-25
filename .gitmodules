@@ -1,0 +1,3 @@
+[submodule "chartjs"]
+	path = chartjs
+	url = https://github.com/FVANCOP/ChartNew.js.git

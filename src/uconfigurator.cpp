@@ -11,7 +11,7 @@ uConfigurator::uConfigurator(QWidget *parent) :
 {
     ui->setupUi(this);
     filtersModel = new  QSqlQueryModel;
-    filtersModel->setQuery("SELECT rowid,* FROM rules ORDER BY level ASC; ");
+    filtersModel->setQuery("SELECT rowid,wtitle,wclass,level,pattern,wtitle||' ('||wclass||')' FROM rules ORDER BY level ASC; ");
     ui->_filters->setModel(filtersModel);
 
 
@@ -84,8 +84,12 @@ void uConfigurator::refresh()
 }
 void uConfigurator::rehide()
 {
+    filtersModel->setHeaderData(4,Qt::Horizontal,QString::fromUtf8("Pattern"));
+    filtersModel->setHeaderData(5,Qt::Horizontal,QString::fromUtf8("Query"));
     ui->_filters->hideColumn(0);
-    //ui->_filters->hideColumn(3);
+    ui->_filters->hideColumn(1);
+    ui->_filters->hideColumn(2);
+    ui->_filters->hideColumn(3);
 }
 
 void uConfigurator::on__remove_clicked()

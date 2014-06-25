@@ -10,4 +10,7 @@
     <qresource prefix="/sql">
         <file>sheet.sql</file>
     </qresource>
+    <qresource prefix="/chartjs">
+        <file>index.html</file>
+    </qresource>
 </RCC>
