@@ -13,26 +13,34 @@ TARGET = watchme
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-    systeminfo_x11.cpp \
-    crawler.cpp \
-    logic.cpp \
-    uconfigurator.cpp \
-    uaddfilter.cpp
+SOURCES += src/main.cpp\
+    src/systeminfo_x11.cpp \
+    src/crawler.cpp \
+    src/logic.cpp \
+    src/uconfigurator.cpp \
+    src/uaddfilter.cpp
 
 HEADERS  += \
-    SystemInfo.h \
-    crawler.h \
-    logic.h \
-    uconfigurator.h \
-    uaddfilter.h
+    src/SystemInfo.h \
+    src/crawler.h \
+    src/logic.h \
+    src/uconfigurator.h \
+    src/uaddfilter.h
 
 FORMS    += \
-    uconfigurator.ui \
-    uaddfilter.ui
+    src/uconfigurator.ui \
+    src/uaddfilter.ui
 
 RESOURCES += \
-    icons.qrc
+    res/res.qrc
 
 OTHER_FILES += \
-    sheet.sql
+    res/sheet.sql
+
+
+OBJECTS_DIR=$$PWD/tmp
+MOC_DIR=$$PWD/tmp
+RCC_DIR=$$PWD/tmp
+UI_DIR=$$PWD/tmp
+DESTDIR=$$PWD/bin
+
