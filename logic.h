@@ -18,8 +18,6 @@ class Logic : public QObject
 public:
     explicit Logic(QObject *parent = 0);
 
-
-
 signals:
 
 public slots:

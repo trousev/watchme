@@ -7,7 +7,7 @@
 #include "logic.h"
 #include <QSystemTrayIcon>
 #include <QSharedMemory>
-#include "viewreport.h"
+#include "uconfigurator.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -18,9 +18,12 @@ int main(int argc, char *argv[])
     Logic logic;
     QMenu m;
 
-    ViewReport report(NULL,&logic, &crawler);
 
-    QObject::connect(m.addAction("Show Report"), SIGNAL(triggered()), &report, SLOT(update()));
+    // ViewReport report(NULL,&logic, &crawler);
+    uConfigurator c;
+    c.show();
+
+    // QObject::connect(m.addAction("Show Report"), SIGNAL(triggered()), &report, SLOT(update()));
     QObject::connect(m.addAction("Exit watcher"), SIGNAL(triggered()), &a, SLOT(quit()));
 
     QSystemTrayIcon i(QIcon(":/icons/eye.png"));

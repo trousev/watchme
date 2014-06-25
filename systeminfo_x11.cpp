@@ -18,17 +18,18 @@ Display *__windowinfo__display;
 unsigned long __windowinfo__window;
 unsigned char *__windowinfo__prop;
 
-void check_status(int status, unsigned long window)
+int check_status(int status, unsigned long window)
 {
     if (status == BadWindow) {
         printf("window id # 0x%lx does not exists!", window);
-        exit(1);
+        return 1;
     }
 
     if (status != Success) {
         printf("XGetWindowProperty failed!");
-        exit(2);
+        return 2;
     }
+    return 0;
 }
 
 unsigned char* get_string_property(char* property_name)
@@ -41,13 +42,16 @@ unsigned char* get_string_property(char* property_name)
 
     filter_atom = XInternAtom(__windowinfo__display, property_name, True);
     status = XGetWindowProperty(__windowinfo__display, __windowinfo__window, filter_atom, 0, MAXSTR, False, AnyPropertyType, &actual_type, &actual_format, &nitems, &bytes_after, &__windowinfo__prop);
-    check_status(status, __windowinfo__window);
+    if(check_status(status, __windowinfo__window))
+    {
+        return NULL;
+    }
     return __windowinfo__prop;
 }
 
 unsigned long get_long_property(char* property_name)
 {
-    get_string_property(property_name);
+    if(!get_string_property(property_name)) return -1;
     unsigned long long_property = __windowinfo__prop[0] + (__windowinfo__prop[1]<<8) + (__windowinfo__prop[2]<<16) + (__windowinfo__prop[3]<<24);
     free(__windowinfo__prop);
     return long_property;

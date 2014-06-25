@@ -1,5 +1,13 @@
 <RCC>
     <qresource prefix="/icons">
         <file>eye.png</file>
+        <file>delete.png</file>
+        <file>down.png</file>
+        <file>edit.png</file>
+        <file>add.png</file>
+        <file>up.png</file>
+    </qresource>
+    <qresource prefix="/sql">
+        <file>sheet.sql</file>
     </qresource>
 </RCC>

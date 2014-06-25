@@ -16,13 +16,12 @@ Crawler::Crawler(QObject *parent) :
     db.setDatabaseName(dbfile);
     assert(db.open());
     QSqlQuery("CREATE TABLE watch(timestamp INGEGER PRIMARY KEY, wclass TEXT, wtitle TEXT)").exec();
+    QSqlQuery("CREATE TABLE rules(wclass TEXT, wtitle TEXT, level INTEGER DEFAULT 0, pattern TEXT)").exec();
 
     QTimer * timer = new QTimer;
     timer->setInterval(6000);
     connect(timer, SIGNAL(timeout()), this, SLOT(onTimer()));
     timer->start();
-
-
 }
 
 void Crawler::onTimer()
