@@ -18,5 +18,8 @@
         <string>com.contourcomponents.test.watchme</string>
         <key>LSUIElement</key>
         <true/>
+        <key>CFBundleIconFile</key>
+        <string>eye.icns</string>
+
 </dict>
 </plist>
