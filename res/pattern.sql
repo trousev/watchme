@@ -1,5 +1,5 @@
 select
-    count(timestamp) as rec_count,
+    cast(count(timestamp) as DOUBLE) / 10 as rec_count,
     rules.pattern as pattern
 from
     (select * from watch

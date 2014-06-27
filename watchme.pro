@@ -13,9 +13,13 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += webkitwidgets
 TARGET = watchme
 TEMPLATE = app
 
+unix: !macx: SOURCES += src/systeminfo_x11.cpp
+macx: OBJECTIVE_SOURCES +=  src/systeminfo_mac.mm
+macx: LIBS += -framework Cocoa
+macx: QMAKE_INFO_PLIST = res/Info.plist
+macx: ICON = res/eye.icns
 
 SOURCES += src/main.cpp\
-    src/systeminfo_x11.cpp \
     src/crawler.cpp \
     src/logic.cpp \
     src/uconfigurator.cpp \
@@ -39,7 +43,8 @@ RESOURCES += \
 OTHER_FILES += \
     res/sheet.sql \
     res/index.html \
-    res/pattern.sql
+    res/pattern.sql \
+    res/Info.plist
 
 
 OBJECTS_DIR=$$PWD/tmp

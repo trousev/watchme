@@ -21,9 +21,8 @@ int main(int argc, char *argv[])
 
     // ViewReport report(NULL,&logic, &crawler);
     uConfigurator c;
-    c.show();
 
-    // QObject::connect(m.addAction("Show Report"), SIGNAL(triggered()), &report, SLOT(update()));
+    QObject::connect(m.addAction("Show Report"), SIGNAL(triggered()), &c, SLOT(appear()));
     QObject::connect(m.addAction("Exit watcher"), SIGNAL(triggered()), &a, SLOT(quit()));
 
     QSystemTrayIcon i(QIcon(":/icons/eye.png"));

@@ -16,7 +16,6 @@ uConfigurator::uConfigurator(QWidget *parent) :
     sheetModel = new QSqlQueryModel;
 
     multiplier = 1;
-    onSlider();
 
     sheetFilterTitleModel = new QSortFilterProxyModel;
     sheetFilterTitleModel->setFilterKeyColumn(1);
@@ -30,6 +29,11 @@ uConfigurator::uConfigurator(QWidget *parent) :
 
     ui->_sheet->setModel(sheetFilterSort);
     connect(ui->_slider, SIGNAL(valueChanged(int)), this, SLOT(onSlider()));
+}
+void uConfigurator::appear()
+{
+    show();
+    onSlider();
 }
 
 uConfigurator::~uConfigurator()

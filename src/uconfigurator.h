@@ -24,7 +24,8 @@ class uConfigurator : public QMainWindow
 public:
     explicit uConfigurator(QWidget *parent = 0);
     ~uConfigurator();
-
+public slots:
+    void appear();
 private slots:
 
     void on__wtitle_textEdited(const QString &arg1);
