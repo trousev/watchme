@@ -9,6 +9,7 @@
     </qresource>
     <qresource prefix="/sql">
         <file>sheet.sql</file>
+        <file>pattern.sql</file>
     </qresource>
     <qresource prefix="/chartjs">
         <file>index.html</file>

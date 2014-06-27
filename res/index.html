@@ -1,41 +1,123 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-  <meta http-equiv="content-type" content="text/html; charset=windows-1250">
-  <meta name="generator" content="PSPad editor, www.pspad.com">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <title></title>
-  <SCRIPT src='chartjs/ChartNew.js'></script>
+  <SCRIPT src='qrc:///chartjs/chartjs/ChartNew.js'></script>
   </head>
   <body>
-  <canvas id="mycanvas" height="800" width="1400"></canvas>
+  <center>
+  <canvas id="mycanvas" height="600" width="600"></canvas>
+  <center>
   <script>
-  var mydata1 = {
-        labels : ["January","February","March","April","May","June","July"],
-        datasets : [
-                {
-                        fillColor : "rgba(220,220,220,0.5)",
-                        strokeColor : "rgba(220,220,220,1)",
-                        pointColor : "rgba(220,220,220,1)",
-                        pointStrokeColor : "#fff",
-                        data : [65,59,90,81,56,55,40],
-      title : "First data"
-                },
-                {
-                        fillColor : "rgba(151,187,205,0.5)",
-                        strokeColor : "rgba(151,187,205,1)",
-                        pointColor : "rgba(151,187,205,1)",
-                        pointStrokeColor : "#fff",
-                        data : [28,48,40,19,96,27,100],
-      title : "Second data"
-                }
-        ]
-  };
+
+    var mydata2 = {pie_data} /*[
+    {
+        value : 30,
+        color: "#D97041",
+        title : "data1"
+    },
+    {
+        value : 90,
+        color: "#C7604C",
+        title : "data2"
+    },
+    {
+        value : 24,
+        color: "#21323D",
+        title : "data3"
+    },
+    {
+    value : 58,
+    color: "#9D9B7F",
+        title : "data4"
+    },
+    {
+    value : 82,
+    color: "#7D4F6D",
+        title : "data5"
+    },
+    {
+    value : 8,
+    color: "#584A5E",
+        title : "data6"
+    }
+    ]*/
+
+
 
   var nooptions = { };
 
   window.onload = function() {
 //    var myLine = new Chart(document.getElementById("mycanvas").getContext("2d")).Line(mydata1,nooptions);
-    var myLine = new Chart(document.getElementById("mycanvas").getContext("2d")).Bar(mydata1,nooptions);
+// ORIG:    var myLine = new Chart(document.getElementById("mycanvas").getContext("2d")).Bar(mydata1,nooptions);
+    options =  {
+    inGraphDataShow : true,
+    datasetFill : true,
+    scaleLabel: "<%=value%>",
+    scaleTickSizeRight : 5,
+    scaleTickSizeLeft : 5,
+    scaleTickSizeBottom : 5,
+    scaleTickSizeTop : 5,
+    scaleFontSize : 16,
+    graphTitle : "My Procrastination",
+                      graphTitleFontFamily : "'Arial'",
+                      graphTitleFontSize : 24,
+                      graphTitleFontStyle : "bold",
+                      graphTitleFontColor : "#666",
+    graphSubTitle : "Things I've done so far...",
+                      graphSubTitleFontFamily : "'Arial'",
+                      graphSubTitleFontSize : 18,
+                      graphSubTitleFontStyle : "normal",
+                      graphSubTitleFontColor : "#666",
+    legend : true,
+          legendFontFamily : "'Arial'",
+          legendFontSize : 12,
+          legendFontStyle : "normal",
+          legendFontColor : "#666",
+    legendBlockSize : 15,
+    legendBorders : true,
+    legendBordersWidth : 1,
+    legendBordersColors : "#666",
+    yAxisLeft : true,
+    yAxisRight : false,
+    xAxisBottom : true,
+    xAxisTop : false,
+    yAxisLabel : "Y Axis Label",
+                      yAxisFontFamily : "'Arial'",
+                      yAxisFontSize : 16,
+                      yAxisFontStyle : "normal",
+                      yAxisFontColor : "#666",
+    xAxisLabel : "pX Axis Label",
+                xAxisFontFamily : "'Arial'",
+                      xAxisFontSize : 16,
+                      xAxisFontStyle : "normal",
+                      xAxisFontColor : "#666",
+    yAxisUnit : "Y Unit",
+                      yAxisUnitFontFamily : "'Arial'",
+                      yAxisUnitFontSize : 8,
+                      yAxisUnitFontStyle : "normal",
+                      yAxisUnitFontColor : "#666",
+    annotateDisplay : true,
+    spaceTop : 0,
+    spaceBottom : 0,
+    spaceLeft : 0,
+    spaceRight : 0,
+    logarithmic: false,
+//      showYAxisMin : false,
+    rotateLabels : "smart",
+    xAxisSpaceOver : 0,
+    xAxisSpaceUnder : 0,
+    xAxisLabelSpaceAfter : 0,
+    xAxisLabelSpaceBefore : 0,
+    legendBordersSpaceBefore : 0,
+    legendBordersSpaceAfter : 0,
+    footNoteSpaceBefore : 0,
+    footNoteSpaceAfter : 0,
+    startAngle : 0,
+    dynamicDisplay : true
+}
+    var myLine = new Chart(document.getElementById("mycanvas").getContext("2d")).Pie(mydata2,options);
 //    var myLine = new Chart(document.getElementById("mycanvas").getContext("2d")).StackedBar(mydata1,nooptions);
 //    var myLine = new Chart(document.getElementById("mycanvas").getContext("2d")).HorizontalBar(mydata1,nooptions;
 //    var myLine = new Chart(document.getElementById("mycanvas").getContext("2d")).HorizontalStackedBar(mydata1,nooptions);

@@ -38,7 +38,8 @@ RESOURCES += \
 
 OTHER_FILES += \
     res/sheet.sql \
-    res/index.html
+    res/index.html \
+    res/pattern.sql
 
 
 OBJECTS_DIR=$$PWD/tmp
