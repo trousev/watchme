@@ -8,6 +8,7 @@
 #include <QSqlDatabase>
 #include <QDir>
 #include <assert.h>
+#include "detectidle.h"
 Crawler::Crawler(QObject *parent) :
     QObject(parent)
 {
@@ -22,6 +23,7 @@ Crawler::Crawler(QObject *parent) :
     timer->setInterval(6000);
     connect(timer, SIGNAL(timeout()), this, SLOT(onTimer()));
     timer->start();
+    _di = new DetectIdle(300,this);
 }
 
 void Crawler::onTimer()
@@ -29,6 +31,11 @@ void Crawler::onTimer()
     WindowInfo wi = getWindowInfo();
     QString wc = wi.windowClass.replace("'","''");
     QString wn = wi.windowName.replace("'","''");
+    if(_di->isIdle())
+    {
+        return ;
+    }
+
     QSqlQuery(QString("INSERT INTO watch(timestamp,wclass,wtitle) VALUES(%1,'%2','%3')")
               .arg(QDateTime::currentMSecsSinceEpoch()/1000).arg(wc,wn))
             .exec();

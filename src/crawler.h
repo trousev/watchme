@@ -3,9 +3,11 @@
 
 #include <QObject>
 #include "SystemInfo.h"
+class DetectIdle;
 class Crawler : public QObject
 {
     Q_OBJECT
+    DetectIdle * _di;
 public:
     explicit Crawler(QObject *parent = 0);
     QList<WindowInfo> all(int seconds_before);

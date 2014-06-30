@@ -25,8 +25,11 @@ int main(int argc, char *argv[])
     QObject::connect(m.addAction("Show Report"), SIGNAL(triggered()), &c, SLOT(appear()));
     QObject::connect(m.addAction("Exit watcher"), SIGNAL(triggered()), &a, SLOT(quit()));
 
+    //c.appear();
+
     QSystemTrayIcon i(QIcon(":/icons/eye.png"));
     i.setContextMenu(&m);
+    QObject::connect(&i, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), &c, SLOT(appear()));
     i.show();
 
     return a.exec();

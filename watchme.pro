@@ -23,14 +23,16 @@ SOURCES += src/main.cpp\
     src/crawler.cpp \
     src/logic.cpp \
     src/uconfigurator.cpp \
-    src/uaddfilter.cpp
+    src/uaddfilter.cpp \
+    detectidle.cpp
 
 HEADERS  += \
     src/SystemInfo.h \
     src/crawler.h \
     src/logic.h \
     src/uconfigurator.h \
-    src/uaddfilter.h
+    src/uaddfilter.h \
+    detectidle.h
 
 FORMS    += \
     src/uconfigurator.ui \
