@@ -46,3 +46,14 @@ UI_DIR=$$PWD/tmp
 DESTDIR=$$PWD/bin
 
 INCLUDEPATH+=$$PWD
+
+
+########### installer
+
+TARGET = watchme
+target.path = /usr/bin
+INSTALLS += target
+
+data.path = /usr/share/watchme/data
+data.files = data/*
+INSTALLS += data

@@ -1,0 +1,11 @@
+Package: watchme
+Version: 0.1-1
+Architecture: amd64
+Maintainer: Alexander Trousevich <trousev@yandex.ru>
+Installed-Size: 82
+Depends: libc6 (>= 2.4), libgcc1 (>= 1:4.1.1), libgl1-mesa-glx | libgl1, libqt5core5a (>= 5.0.2), libqt5gui5 (>= 5.0.2), libqt5sql5 (>= 5.0.2), libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 4.1.1), x11-utils, xprintidle
+Section: Desktop
+Priority: optional
+Homepage: https://github.com/trousev/watchme
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>
