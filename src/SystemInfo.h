@@ -5,9 +5,9 @@ struct WindowInfo
 {
     QString windowClass;
     QString windowName;
-    QString windowTitle;
+    bool isSystemIsIdle;
 };
-
+bool operator==(WindowInfo _1, WindowInfo _2);
 WindowInfo getWindowInfo();
 
 #endif // SYSTEMINFO_H

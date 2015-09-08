@@ -1,0 +1,5 @@
+# DEPENDS
+
+### Linux:
+xprintidle
+xprop
