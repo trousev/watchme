@@ -22,10 +22,12 @@ macx: ICON = res/eye.icns
 
 SOURCES += \
     src/SystemInfo.cpp \
-    src/uMain.cpp
+    src/uMain.cpp \
+    src/crawler.cpp
 
 HEADERS  += \
-    src/SystemInfo.h
+    src/SystemInfo.h \
+    src/crawler.h
 
 FORMS    +=
 

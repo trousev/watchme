@@ -9,3 +9,10 @@ bool operator==(WindowInfo _1, WindowInfo _2)
         return false;
     return true;
 }
+
+void WindowInfo::operator =(WindowInfo & o)
+{
+    windowClass = o.windowClass;
+    windowName = o.windowName;
+    isSystemIsIdle = o.isSystemIsIdle;
+}
