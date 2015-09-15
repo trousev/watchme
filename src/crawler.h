@@ -1,6 +1,7 @@
 #ifndef CRAWLER_H
 #define CRAWLER_H
 
+#include <QDir>
 #include <QObject>
 #include <QFile>
 #include "SystemInfo.h"
@@ -20,6 +21,8 @@ private:
     QFile _report;
     WindowInfo _last_wi;
     QDateTime _last_changed;
+public:
+    static QDir mainDir();
 };
 
 #endif // CRAWLER_H

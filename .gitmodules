@@ -1,3 +1,9 @@
 [submodule "chartjs"]
 	path = chartjs
 	url = https://github.com/FVANCOP/ChartNew.js.git
+[submodule "fcml"]
+	path = fcml
+	url = https://github.com/trousev/fcml.git
+[submodule "nightcharts"]
+	path = nightcharts
+	url = https://github.com/trousev/nightcharts.git

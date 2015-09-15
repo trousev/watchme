@@ -10,7 +10,7 @@ Crawler::Crawler(QObject *parent) :
     timer->setInterval(1000);
     connect(timer, SIGNAL(timeout()), this, SLOT(onTimer()));
     timer->start();
-    _report.setFileName( QDir::home().absoluteFilePath(".watchme.log"));
+    _report.setFileName( mainDir().absoluteFilePath(".watchme.log"));
     _report.open(QFile::Append);
 }
 
@@ -43,4 +43,13 @@ void Crawler::onTimer()
     _report.flush();
     _last_changed = cdt;
     _last_wi = i;
+}
+
+QDir Crawler::mainDir() {
+    QDir ans = QDir::home();
+    ans.mkpath(".watchme");
+    if(ans.cd(".watchme"))
+        return ans;
+    throw QString("Can't create home dir");
+    return QDir();
 }

@@ -4,7 +4,11 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
+#Modules
+include("fcml/fcml.pri")
+include("nightcharts/nightcharts.pri")
+
+QT       += core gui sql xml
 # QT += webkit
 # QT += printsupport
 
@@ -23,13 +27,18 @@ macx: ICON = res/eye.icns
 SOURCES += \
     src/SystemInfo.cpp \
     src/uMain.cpp \
-    src/crawler.cpp
+    src/crawler.cpp \
+    watchme.cpp \
+    src/classificator.cpp
 
 HEADERS  += \
     src/SystemInfo.h \
-    src/crawler.h
+    src/crawler.h \
+    watchme.h \
+    src/classificator.h
 
-FORMS    +=
+FORMS    += \
+    watchme.ui
 
 RESOURCES += \
     res/res.qrc \
@@ -46,7 +55,7 @@ UI_DIR=$$PWD/tmp
 DESTDIR=$$PWD/bin
 
 INCLUDEPATH+=$$PWD
-
+INCLUDEPATH+=src
 
 ########### installer
 

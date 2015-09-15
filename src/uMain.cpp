@@ -1,4 +1,5 @@
 #include "SystemInfo.h"
+#include "watchme.h"
 #include <QDebug>
 #include <QApplication>
 #include <QSystemSemaphore>
@@ -37,5 +38,12 @@ int main(int q, char * argv[]) {
 
 
     Crawler * c = new Crawler();
-    return app.exec();
+    WatchMe * w = new WatchMe;
+    w->show();
+
+    int ret =  app.exec();
+    delete c;
+    delete w;
+    return ret;
+
 }

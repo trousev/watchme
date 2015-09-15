@@ -10,6 +10,6 @@ Vcs-Git: https://github.com/trousev/watchme.git
 
 Package: watchme
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, x11-utils, xprintidle
+Depends: ${shlibs:Depends}, ${misc:Depends}, x11-utils, xprintidle, qt5-default
 Description: <insert up to 60 chars description>
  <insert long description, indented with spaces>

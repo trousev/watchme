@@ -9,7 +9,7 @@
 #define MAXSTR 1000
 QString _do_repplace(QString in)
 {
-    QRegExp r(".*=");
+    QRegExp r("^.*=");
     r.setMinimal(true);
     in = in.replace(r, "");
     in = in.replace("\n","");

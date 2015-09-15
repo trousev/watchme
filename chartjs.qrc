@@ -1,3 +1,4 @@
 <RCC>
     <qresource prefix="/chartjs"/>
+    <qresource prefix="/"/>
 </RCC>
