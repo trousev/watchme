@@ -9,7 +9,7 @@
 #include <QMap>
 #include <QPair>
 #include <QRegExp>
-
+#include <QSystemTrayIcon>
 #include "classificator.h"
 
 namespace Ui {
@@ -40,6 +40,10 @@ private slots:
 
     void on__remove_clicked();
 
+    void on__log_doubleClicked(const QModelIndex &index);
+
+    void on_actionQuit_triggered();
+
 private:
     Ui::WatchMe *ui;
     CItemList currentClassification;
@@ -49,6 +53,7 @@ private:
     void save(QString newName);
     void updateClassfication();
     void compile();
+    QSystemTrayIcon * _tray;
 };
 
 #endif // WATCHME_H

@@ -29,20 +29,21 @@ SOURCES += \
     src/uMain.cpp \
     src/crawler.cpp \
     watchme.cpp \
-    src/classificator.cpp
+    src/classificator.cpp \
+    src/wdraggabletablewidget.cpp
 
 HEADERS  += \
     src/SystemInfo.h \
     src/crawler.h \
     watchme.h \
-    src/classificator.h
+    src/classificator.h \
+    src/wdraggabletablewidget.h
 
 FORMS    += \
     watchme.ui
 
 RESOURCES += \
     res/res.qrc \
-    chartjs.qrc
 
 OTHER_FILES += \
     DEPENDS.md

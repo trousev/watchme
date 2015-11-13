@@ -41,6 +41,7 @@ WindowInfo getWindowInfo()
     int idle;
     fscanf(p, "%d", &idle);
     wi.isSystemIsIdle = (idle > 600000);
+    pclose(p);
     return wi;
 }
 

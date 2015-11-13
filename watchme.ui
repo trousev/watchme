@@ -190,16 +190,7 @@
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
-       <widget class="QTableWidget" name="_filters">
-        <property name="dragEnabled">
-         <bool>true</bool>
-        </property>
-        <property name="dragDropOverwriteMode">
-         <bool>false</bool>
-        </property>
-        <property name="dragDropMode">
-         <enum>QAbstractItemView::InternalMove</enum>
-        </property>
+       <widget class="WDraggableTableWidget" name="_filters">
         <property name="selectionMode">
          <enum>QAbstractItemView::SingleSelection</enum>
         </property>
@@ -255,6 +246,7 @@
     <property name="title">
      <string>Watcher</string>
     </property>
+    <addaction name="actionQuit"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -276,6 +268,20 @@
     <bool>false</bool>
    </attribute>
   </widget>
+  <action name="__test__iconAction">
+   <property name="icon">
+    <iconset resource="res/res.qrc">
+     <normaloff>:/icons/eye-8x.png</normaloff>:/icons/eye-8x.png</iconset>
+   </property>
+   <property name="text">
+    <string>__test__iconAction</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -283,6 +289,11 @@
    <extends>QWidget</extends>
    <header>nightchartswidget.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>WDraggableTableWidget</class>
+   <extends>QTableWidget</extends>
+   <header>wdraggabletablewidget.h</header>
   </customwidget>
  </customwidgets>
  <resources>

@@ -6,7 +6,8 @@
 #include <QDebug>
 #include <QFile>
 #include <QDir>
-
+#include <QIcon>
+#include <QPixmap>
 WatchMe::WatchMe(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::WatchMe)
@@ -20,6 +21,10 @@ WatchMe::WatchMe(QWidget *parent) :
     ui->_toolbar->addWidget(ui->_add);
     ui->_toolbar->addWidget(ui->_remove);
     ui->_toolbar->addWidget(ui->_reload);
+    QIcon trayicon = ui->__test__iconAction->icon();
+    _tray = new QSystemTrayIcon(trayicon);
+    connect(_tray, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(show()));
+    _tray->show();
 
     ui->_classification->clear();
     ui->_classification->addItems(getClassificationList());
@@ -53,6 +58,7 @@ void WatchMe::populate(QDateTime start, QDateTime end, bool group)
         if(line.isEmpty() && _report.atEnd()) break;
         line = line.replace("\n","");
         line = line.replace("\r","");
+        line = line.trimmed();
 
         if (_index.contains(line) && group)
         {
@@ -194,9 +200,17 @@ void WatchMe::compile() {
     {
         QString probe = ui->_log->item(row,0)->data(Qt::UserRole+2).toString();
         int time = ui->_log->item(row,0)->data(Qt::UserRole+1).toInt();
-        QString match = currentClassification.getMatch(probe, "Other/Unknown");
-        report.track(match, time);
-        ui->_log->setItem(row,2, new QTableWidgetItem( match ));
+        QString defaultMatch = "Other/Unknown";
+        QString match = currentClassification.getMatch(probe, defaultMatch);
+        if(!match.startsWith("!"))
+            report.track(match, time);
+        QTableWidgetItem * item = new QTableWidgetItem( match );
+        if(match == defaultMatch)
+            item->setBackgroundColor(QColor::fromRgb(255,128,128));
+        else if(match.contains("unknown",Qt::CaseInsensitive))
+            item->setBackgroundColor(QColor::fromRgb(255,255,128));
+        ui->_log->setItem(row,2, item);
+
     }
     QMap<QString, float> _result = report.result();
     for(int i=0; i<_result.keys().count(); i++)
@@ -218,4 +232,16 @@ void WatchMe::on__remove_clicked()
     if(ui->_filters->currentRow() < 0) return ;
     if(ui->_filters->currentRow() >= ui->_filters->rowCount()) return ;
     ui->_filters->removeRow(ui->_filters->currentRow());
+}
+
+void WatchMe::on__log_doubleClicked(const QModelIndex &index)
+{
+    ui->_filters->insertRow(ui->_filters->rowCount());
+    ui->_filters->setItem(ui->_filters->rowCount()-1, 0, new QTableWidgetItem("Category/Subcategory"));
+    ui->_filters->setItem(ui->_filters->rowCount()-1, 1, new QTableWidgetItem(index.data().toString()));
+}
+
+void WatchMe::on_actionQuit_triggered()
+{
+    QApplication::exit(0);
 }

@@ -11,7 +11,7 @@ int main(int q, char * argv[]) {
     QCoreApplication::setApplicationName("WatchMe");
     QApplication app(q, argv);
 
-
+    app.setQuitOnLastWindowClosed(false);
 
     QSystemSemaphore sema("WATCHME.9aa3f102-0147-4b02-a540-3a5807ac0be7", 1);
     bool isRunning;
@@ -39,7 +39,7 @@ int main(int q, char * argv[]) {
 
     Crawler * c = new Crawler();
     WatchMe * w = new WatchMe;
-    w->show();
+    //w->show();
 
     int ret =  app.exec();
     delete c;
