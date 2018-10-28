@@ -2,3 +2,8 @@
 tmp
 bin
 Makefile
+.private
+.tmp
+.python-interpreter
+build-client-desktop-*
+db.sqlite3

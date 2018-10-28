@@ -1,0 +1,13 @@
+Source: watchme
+Section: Desktop
+Priority: optional
+Maintainer: Alexander Trousevich <me@trousev.pro>
+Build-Depends: debhelper (>= 9), git, python3, python3-dev, qt5-default
+Standards-Version: 3.9.5
+Homepage: https://trousev.pro/watchme/getting-sources
+
+Package: watchme-desktop-client
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, libqt5widgets5, libqt5network5
+Description: Watchme client for desktop
+
